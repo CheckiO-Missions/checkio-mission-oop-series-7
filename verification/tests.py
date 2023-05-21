@@ -11,7 +11,70 @@ from inspect import signature
 
 params = signature(Car.__init__).parameters
 if not all((len(params) ==  3, 'self' in params, 'brand' in params, 'model' in params)):
-    raise NotImplementedError("Check '__init__' arguments")
+    raise NotImplementedError("Check the number and names of '__init__' arguments of 'Car'")
+
+if not "my_car" in USER_GLOBAL:
+    raise NotImplementedError("Where is 'my_car'?")
+
+my_car = USER_GLOBAL['my_car']
+
+if not isinstance(my_car, Car):
+    raise TypeError("'my_car' should be an instance of Car class")
+
+if my_car.brand != "" or my_car.model != "":
+    raise Warning("'my_car' must have default values as 'brand' and 'model'")
+    
+if not "some_car1" in USER_GLOBAL:
+    raise NotImplementedError("Where is 'some_car1'?")
+
+some_car1 = USER_GLOBAL['some_car1']
+
+if not isinstance(some_car1, Car):
+    raise TypeError("'some_car1' should be an instance of 'Car' class")
+
+if not hasattr(some_car1, "brand"):
+    raise NotImplementedError("Where is 'brand' attribute of 'some_car1'?")
+    
+if not isinstance(some_car1.brand, str):
+    raise TypeError("'brand' attribute of 'some_car1' should be of type 'str'")
+
+if not hasattr(some_car1, "model"):
+    raise NotImplementedError("Where is 'model' attribute of 'some_car1'?")
+
+if not isinstance(some_car1.model, str):
+    raise TypeError("'model' attribute of 'some_car1' should be of type 'str'")
+
+if not "some_car2" in USER_GLOBAL:
+    raise NotImplementedError("Where is 'some_car2'?")
+
+some_car2 = USER_GLOBAL['some_car2']
+
+if not isinstance(some_car2, Car):
+    raise TypeError("'some_car2' should be an instance of 'Car' class")
+
+if not hasattr(some_car2, "brand"):
+    raise NotImplementedError("Where is 'brand' attribute of 'some_car2'?")
+    
+if not isinstance(some_car2.brand, str):
+    raise TypeError("'brand' attribute of 'some_car2' should be of type 'str'")
+
+if not hasattr(some_car2, "model"):
+    raise NotImplementedError("Where is 'model' attribute of 'some_car2'?")
+
+if not isinstance(some_car2.model, str):
+    raise TypeError("'model' attribute of 'some_car2' should be of type 'str'")
+
+if not hasattr(some_car1, "working_engine"):
+    raise NotImplementedError("Where is 'working_engine' attribute of 'some_car1' object?")
+
+if not isinstance(some_car1.working_engine, bool):
+    raise TypeError("'working_engine' attribute should be of type 'bool'")
+
+if not hasattr(some_car2, "working_engine"):
+    raise NotImplementedError("Where is 'working_engine' attribute of 'some_car2' object?")
+
+if not isinstance(some_car2.working_engine, bool):
+    raise TypeError("'working_engine' attribute should be of type 'bool'")
 
 if not 'start_engine' in vars(Car):
     raise NotImplementedError("Where is 'start_engine' method?")
@@ -27,6 +90,12 @@ params3 = signature(Car.stop_engine).parameters
 if not all((len(params3) ==  1, 'self' in params3)):
     raise NotImplementedError("Check 'stop_engine' arguments")
 
+if not some_car1.working_engine:
+    raise Warning("'some_car1' has not been started: method is not implemented or method call absent")
+
+if not some_car2.working_engine:
+    raise Warning("'some_car2' has not been started: method is not implemented or method call absent")
+
 if not "ElectricCar" in USER_GLOBAL:
     raise NotImplementedError("Where is 'ElectricCar'?")
 
@@ -36,11 +105,11 @@ if not issubclass(ElectricCar, Car):
     raise TypeError("'ElectricCar' should be a child of 'Car' class")
 
 if not '__init__' in vars(ElectricCar):
-    raise NotImplementedError("Where is '__init__' method?")
+    raise NotImplementedError("Where is '__init__' method of 'ElectricCar'?")
 
 params4 = signature(ElectricCar.__init__).parameters
 if not all((len(params4) ==  4, 'self' in params4, 'brand' in params4, 'model' in params4, 'battery_capacity' in params4)):
-    raise NotImplementedError("Check '__init__' arguments")
+    raise NotImplementedError("Check the number and names of '__init__' arguments of 'ElectricCar'")
 
 if not "my_electric_car" in USER_GLOBAL:
     raise NotImplementedError("Where is 'my_electric_car'?")
@@ -111,7 +180,6 @@ if not isinstance(my_electric_car2.working_engine, str):
 
 if my_electric_car2.working_engine != "No":
     raise Warning("'my_electric_car2' has not been stopped")
-
 
 if not "my_electric_car3" in USER_GLOBAL:
     raise NotImplementedError("Where is 'my_electric_car3'?")
