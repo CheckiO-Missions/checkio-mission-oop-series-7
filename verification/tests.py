@@ -288,7 +288,7 @@ with contextlib.redirect_stdout(io.StringIO()) as stdout:
                      show_code='''(test_car := ElectricCar(30)).start_engine()
     test_car.stop_engine()'''),
         prepare_test(middle_code='''import inspect''',
-                     test="'super().__init__' in inspect.getsource(ElectricCar.__init__),
+                     test="'super().__init__' in inspect.getsource(ElectricCar.__init__)",
                      answer=True,
                      show_code=""),
 ]}
