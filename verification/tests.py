@@ -286,5 +286,9 @@ with contextlib.redirect_stdout(io.StringIO()) as stdout:
                      test="test_car.working_engine, stdout.getvalue()",
                      answer=["No", "Electric motor has started\nElectric motor has stopped\n"],
                      show_code='''(test_car := ElectricCar(30)).start_engine()
-    test_car.stop_engine()'''),            
+    test_car.stop_engine()'''),
+        prepare_test(middle_code='''import inspect''',
+                     test="'super().__init__' in inspect.getsource(ElectricCar.__init__),
+                     answer=True,
+                     show_code=""),
 ]}
