@@ -1,9 +1,13 @@
 <!-- Describe task in general -->
 
-<p>7.1. Modify the <b>__init__</b> method of the <b>ElectricCar</b> class so that it uses <b>super()</b> to call the <b>__init__</b> method of the <b>Car</b> class.</p>
 
-<p>7.2. Create an instance <b>my_electric_car3</b> of the <b>ElectricCar</b> class, passing <b>battery_capacity, brand, model</b>.</p>
+<p>7.1. Add the <b>fuel_used</b> attribute inside <b>__init__</b> method of <b>Car</b> class without changing its arguments and assign it a value of <b>0</b> liters.</p>
 
+<p>7.2. Add the <b>fuel_consumption</b> attribute inside <b>__init__</b> method of <b>Car</b> class, passing it as a method argument with default value of <b>7</b> (liters/100 km).</p>
+
+<p>7.3. Add a <b>drive</b> method to the <b>Car</b> class that takes the <b>distance</b> argument of type <b><span translate="repeat">int</span></b> (km). If an instance of class had started - increment <b>fuel_used</b> with the proper value and display the message <b>"Currently driven {distance} km, total fuel used - {fuel_used} l"</b>. If the instance had not started, display <b>"Start the car before driving!"</b>.</p>
+
+<p>7.4. Rewrite the method for the <b>ElectricCar</b> class, do not increment <b>fuel_used</b> (since electric car doesn't used fuel), change the successful message to <b>"Currently driven {distance} km on electric motor"</b>, keep the unsuccessful message unchanged.</p>
 
 
 <!-- <p style="text-align: center;">
